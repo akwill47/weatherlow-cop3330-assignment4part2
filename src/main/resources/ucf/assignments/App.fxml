@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitMenuButton?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucf.assignments.ListController">
+   <children>
+      <TextField fx:id="resultDisplay" editable="false" layoutX="272.0" layoutY="152.0" prefHeight="239.0" prefWidth="313.0" />
+      <SplitMenuButton layoutX="14.0" layoutY="24.0" mnemonicParsing="false" onAction="#ListButtonClicked" text="Lists">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Action 1" />
+          <MenuItem mnemonicParsing="false" text="Action 2" />
+        </items>
+      </SplitMenuButton>
+      <SplitMenuButton layoutX="86.0" layoutY="24.0" mnemonicParsing="false" onAction="#ModifyListButtonClicked" text="Modify Lists">
+        <items>
+          <MenuItem mnemonicParsing="false" onAction="#AddListMenuButtonClicked" text="Add list" />
+          <MenuItem mnemonicParsing="false" onAction="#RemoveListMenuButtonClicked" text="Remove List" />
+        </items>
+      </SplitMenuButton>
+      <SplitMenuButton layoutX="199.0" layoutY="24.0" mnemonicParsing="false" onAction="#EditListButtonClicked" text="Edit Current List">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Edit Title" />
+          <MenuItem mnemonicParsing="false" text="Add Item" />
+            <MenuItem mnemonicParsing="false" text="Remove Item" />
+            <MenuItem mnemonicParsing="false" text="Edit description" />
+            <MenuItem mnemonicParsing="false" text="Edit Due Date" />
+            <MenuItem mnemonicParsing="false" text="Mark Item Complete" />
+        </items>
+      </SplitMenuButton>
+      <SplitMenuButton layoutX="331.0" layoutY="24.0" mnemonicParsing="false" onAction="#DisplayListButtonClicked" text="Display  Lists">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Display all items" />
+          <MenuItem mnemonicParsing="false" text="Display incompleted items" />
+            <MenuItem mnemonicParsing="false" text="Display completed items" />
+        </items>
+      </SplitMenuButton>
+      <SplitMenuButton layoutX="448.0" layoutY="24.0" mnemonicParsing="false" onAction="#ExternalFunctionsButtonClicked" text="External Functions">
+        <items>
+          <MenuItem mnemonicParsing="false" text="Action 1" />
+          <MenuItem mnemonicParsing="false" text="Action 2" />
+        </items>
+      </SplitMenuButton>
+   </children>
+</AnchorPane>
