@@ -6,9 +6,44 @@ main()
 start()
 }
 
+
 class ListController{
 
 }
+
+class TodoListModel{
+
+    todoItem: Collection
+    todoList: Collection
+    addList()
+    removeList()
+    editListTitle()
+    addItem()
+    removeItem()
+    editItemDescription()
+    editItemDueDate()
+    markItemComplete()
+
+    displayAllItems()
+    displayCompleteItems()
+    displayIncompleteItems()
+
+    saveCurrentList()
+    saveAllLists()
+
+    loadSingleList()
+    loadAllLists()
+
+}
+
+class TodoListItem{
+    Description: String
+    Due date: String
+    Completed: boolean
+}
+
 javafx.Application <|-- App
 App -- ListController
+ListController *--> TodoListModel
+TodoListModel *-> TodoListItem
 @enduml
