@@ -1,9 +1,12 @@
 package ucf.assignments;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class TodoListModel {
 
         //modifying lists
-    public String addList(){
+    public String addList(String title, ArrayList<HashMap<String,String>>List){
         //add hashmap title
         //add ArrayList hashmap of 0 items
 
@@ -20,7 +23,7 @@ public class TodoListModel {
 
         return "List successfully removed";
     }
-    public String editListTitle(){
+    public String editListTitle(String title){
         //for i < TotalLists Size
 
             // if currentList title equal to title
@@ -32,7 +35,7 @@ public class TodoListModel {
 
         return "title Succesfully changed";
     }
-    public String addItem(){
+    public String addItem(String title){
         //for i < TotalLists Size
             // if currentList title equal to title
                 //add new map with description/due date/complete status
@@ -41,7 +44,7 @@ public class TodoListModel {
         return "Item successfully added";
 
     }
-    public String removeItem(){
+    public String removeItem(String title){
         //if CurrentList size == 0
             //return "No items in list"
         //for i < TotalLists Size
@@ -59,7 +62,7 @@ public class TodoListModel {
         return "Item successfully added";
 
     }
-    public String editItemDescription(){
+    public String editItemDescription(String title){
 
         //for i < TotalLists Size
             // if currentList title equal to title
@@ -76,7 +79,7 @@ public class TodoListModel {
         return "Item description successfully changed";
 
     }
-    public String editItemDueDate(){
+    public String editItemDueDate(String title){
         //for i < TotalLists Size
             // if currentList title equal to title
                 //for i< CurrentList size
@@ -93,7 +96,7 @@ public class TodoListModel {
         return "Item description successfully changed";
 
     }
-    public String markItemComplete(){
+    public String markItemComplete(String title){
         //for i < TotalLists Size
             // if currentList title equal to title
                 //for i< CurrentList size
@@ -155,18 +158,37 @@ public class TodoListModel {
     }
         // save/loading
 
-    public String saveCurrentList(){
+    public String saveCurrentList(String title){
+        //create file in working directory
+        //find index of current list title
+        //write in json format to file
+        //close file
 
+        return "Current list saved";
     }
 
     public String saveAllLists(){
+        //create file in working directory
+        //for loop through all list indexs
+        //write in json format to file
+        //close file
+
+        return "All lists saved";
 
     }
-    public String loadSingleList(){
+    public String loadSingleList(String title){
+        //access work directory
+        //for loop through all list titles
+        //match to do list with title
+        //grab json format of that specific list
+        return title + "list loaded";
 
     }
     public String loadAllLists(){
-
+        //access work directory
+        //for loop through all list titles
+        //grab json format of every list
+        return "All lists from directory loaded";
     }
 
 
