@@ -8,6 +8,10 @@ start()
 
 
 class ListController{
+AddListItem()
+RemoveList()
+removeItem()
+editDes
 
 }
 

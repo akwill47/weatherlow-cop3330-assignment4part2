@@ -1,8 +1,10 @@
 package ucf.assignments;
 
+import java.time.LocalDate;
+
 public class TodoListItem {
-    String description;
-    String dueDate;
+    private String description;
+    private LocalDate dueDate;
     boolean completed;
 
 }

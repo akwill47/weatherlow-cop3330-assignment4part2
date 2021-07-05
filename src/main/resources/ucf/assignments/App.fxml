@@ -3,23 +3,58 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<SplitPane dividerPositions="0.27208480565371024" orientation="VERTICAL" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucf.assignments.ListController">
+<SplitPane dividerPositions="0.1891891891891892" orientation="VERTICAL" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucf.assignments.ListController">
    <items>
-      <AnchorPane prefHeight="77.0" prefWidth="601.0">
+      <AnchorPane prefHeight="127.0" prefWidth="608.0">
+         <children>
+            <MenuButton layoutX="37.0" layoutY="22.0" mnemonicParsing="false" text="Edit lists">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#AddList" text="Add List" />
+                <MenuItem mnemonicParsing="false" onAction="#removeList" text="Remove List" />
+              </items>
+            </MenuButton>
+            <MenuButton layoutX="143.0" layoutY="22.0" mnemonicParsing="false" text="Edit items">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#removeItem" text="Remove item" />
+                <MenuItem mnemonicParsing="false" onAction="#editDescription" text="Change description" />
+                  <MenuItem mnemonicParsing="false" onAction="#editDueDate" text="Change due date" />
+                  <MenuItem mnemonicParsing="false" onAction="#markComplete" text="Mark complete" />
+              </items>
+            </MenuButton>
+            <MenuButton layoutX="253.0" layoutY="22.0" mnemonicParsing="false" text="Display items">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#displayAll" text="All items" />
+                <MenuItem mnemonicParsing="false" onAction="#displayComplete" text="Completed items" />
+                  <MenuItem mnemonicParsing="false" onAction="#displayIncomplete" text="Uncompleted items" />
+              </items>
+            </MenuButton>
+            <MenuButton layoutX="378.0" layoutY="22.0" mnemonicParsing="false" text="List storage">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#saveCurrent" text="Save current list" />
+                <MenuItem mnemonicParsing="false" onAction="#saveAll" text="Save all lists" />
+                  <MenuItem mnemonicParsing="false" onAction="#loadOne" text="Load one list" />
+                  <MenuItem mnemonicParsing="false" onAction="#loadAll" text="Load all lists" />
+              </items>
+            </MenuButton>
+         </children>
+      </AnchorPane>
+      <AnchorPane prefHeight="509.0" prefWidth="608.0">
          <children>
             <Button fx:id="addList" layoutX="14.0" layoutY="29.0" mnemonicParsing="false" onAction="#AddListItem" text="Add item" />
             <DatePicker fx:id="addDate" layoutX="95.0" layoutY="29.0" prefHeight="25.0" prefWidth="102.0" />
-            <TextField fx:id="addDescription" layoutX="225.0" layoutY="29.0" prefHeight="25.0" prefWidth="361.0" />
+            <TextField fx:id="addDescription" layoutX="225.0" layoutY="29.0" prefHeight="25.0" prefWidth="265.0" />
             <Separator layoutX="89.0" orientation="VERTICAL" prefHeight="142.0" prefWidth="6.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="89.0" AnchorPane.topAnchor="0.0" />
             <Separator layoutX="206.0" orientation="VERTICAL" prefHeight="145.0" prefWidth="6.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="206.0" AnchorPane.topAnchor="0.0" />
+            <ListView layoutX="-2.0" layoutY="72.0" prefHeight="479.0" prefWidth="610.0" />
+            <TextField fx:id="isComplete" layoutX="521.0" layoutY="29.0" prefHeight="25.0" prefWidth="44.0" />
          </children>
       </AnchorPane>
-      <ListView prefHeight="200.0" prefWidth="200.0" />
    </items>
 </SplitPane>
