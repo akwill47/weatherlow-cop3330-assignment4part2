@@ -19,7 +19,7 @@ public class ListController {
     @FXML
     DatePicker addDate;
     @FXML
-    TextField description;
+    TextField addDescription;
     @FXML
     TextField isComplete;
     @FXML
@@ -33,7 +33,7 @@ public class ListController {
     public void AddListItem(ActionEvent actionEvent) {
         HashMap<String,String> newItem = new HashMap<>();
         newItem.put("date",(addDate.getValue().toString()));
-        newItem.put("description",description.getText());
+        newItem.put("description",addDescription.getText());
         newItem.put("complete",isComplete.getText());
         list.add(newItem);
         itemList.setItems(list);
@@ -42,7 +42,7 @@ public class ListController {
     }
     private void refresh(){
         addDate.setValue(LocalDate.now());
-        description.setText(null);
+        addDescription.setText(null);
         isComplete.setText(null);
     }
 
