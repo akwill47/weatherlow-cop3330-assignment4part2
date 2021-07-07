@@ -40,12 +40,12 @@
       <AnchorPane prefHeight="509.0" prefWidth="608.0">
          <children>
             <Button fx:id="addList" layoutX="14.0" layoutY="29.0" mnemonicParsing="false" onAction="#AddListItem" text="Add item" />
-            <DatePicker fx:id="addDate" layoutX="95.0" layoutY="29.0" prefHeight="25.0" prefWidth="102.0" />
-            <TextField fx:id="addDescription" layoutX="225.0" layoutY="29.0" prefHeight="25.0" prefWidth="265.0" />
+            <DatePicker fx:id="addDate" layoutX="95.0" layoutY="29.0" prefHeight="25.0" prefWidth="102.0" promptText="Enter a date" />
+            <TextField fx:id="addDescription" layoutX="225.0" layoutY="29.0" prefHeight="25.0" prefWidth="265.0" promptText="Enter a description" />
             <Separator layoutX="89.0" orientation="VERTICAL" prefHeight="142.0" prefWidth="6.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="89.0" AnchorPane.topAnchor="0.0" />
             <Separator layoutX="206.0" orientation="VERTICAL" prefHeight="145.0" prefWidth="6.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="206.0" AnchorPane.topAnchor="0.0" />
-            <TextField fx:id="isComplete" layoutX="521.0" layoutY="29.0" prefHeight="25.0" prefWidth="44.0" />
-            <ListView layoutX="-2.0" layoutY="72.0" prefHeight="479.0" prefWidth="610.0" />
+            <TextField fx:id="isComplete" layoutX="509.0" layoutY="29.0" prefHeight="25.0" prefWidth="79.0" promptText="Enter Status" />
+            <ListView fx:id="itemList" layoutX="-2.0" layoutY="72.0" prefHeight="479.0" prefWidth="610.0" />
          </children>
       </AnchorPane>
    </items>

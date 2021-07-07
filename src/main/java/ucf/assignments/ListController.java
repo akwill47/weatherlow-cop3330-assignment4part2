@@ -37,6 +37,7 @@ public class ListController {
         newItem.put("complete",isComplete.getText());
         list.add(newItem);
         itemList.setItems(list);
+        refresh();
 
 
     }
@@ -47,11 +48,22 @@ public class ListController {
     }
 
     public void removeItem(ActionEvent actionEvent) {
-        func.removeItem(title,todoLists);
+        int index = itemList.getSelectionModel().getSelectedIndex();
+        if(index >= 0){
+            itemList.getItems().remove(index);
+        }
+        refresh();
+        //func.removeItem(title,todoLists);
+
     }
 
     public void editDescription(ActionEvent actionEvent) {
-        func.editItemDescription(title,todoLists);
+        int index = itemList.getSelectionModel().getSelectedIndex();
+        if(index >= 0){
+            itemList.getItems().get(index).put("description",addDescription.getText());
+        }
+        refresh();
+        //func.editItemDescription(title,todoLists);
     }
 
     public void editDueDate(ActionEvent actionEvent) {
