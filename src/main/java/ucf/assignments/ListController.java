@@ -9,6 +9,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -16,26 +17,34 @@ import java.util.HashMap;
 public class ListController {
     TodoListModel func = new TodoListModel();
     @FXML
-    ListView<TodoListItem> ItemList;
-    @FXML
     DatePicker addDate;
     @FXML
     TextField description;
     @FXML
     TextField isComplete;
+    @FXML
+    ListView<TodoListItem>itemList;
 
     ObservableList<TodoListItem> list = FXCollections.observableArrayList();
-    ArrayList<ArrayList<HashMap<String,String>>>todoLists = new ArrayList<>();
-    String title= "test";
+    ArrayList<HashMap<String,String>>todoLists = new ArrayList<>();
+    String title;
 
-
+    @FXML
     public void AddListItem(ActionEvent actionEvent) {
-        func.addItem(title,todoLists);
+        //HashMap<String,String> newItem = new HashMap<>();
+        //newItem.put("date",(addDate.getValue().toString()));
+        //newItem.put("description",description.getText());
+        //newItem.put("complete",isComplete.getText());
+        //todoLists.add(newItem);
+        list.add(new TodoListItem(addDate.getValue(),description.getText(),isComplete.getText()));
+        itemList.setItems(list);
+        refresh();
 
     }
-
-    public void removeList(ActionEvent actionEvent) {
-        func.removeList(title,todoLists);
+    private void refresh(){
+        addDate.setValue(LocalDate.now());
+        description.setText(null);
+        isComplete.setText(null);
     }
 
     public void removeItem(ActionEvent actionEvent) {
@@ -70,19 +79,8 @@ public class ListController {
         func.saveCurrentList(title,todoLists);
     }
 
-    public void saveAll(ActionEvent actionEvent) {
-        func.saveAllLists(title,todoLists);
-    }
-
     public void loadOne(ActionEvent actionEvent) {
         func.loadSingleList(title,todoLists);
     }
 
-    public void loadAll(ActionEvent actionEvent) {
-        func.loadAllLists(title,todoLists);
-    }
-
-    public void AddList(ActionEvent actionEvent) {
-        func.addList(title,todoLists);
-    }
 }

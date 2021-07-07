@@ -14,13 +14,7 @@
    <items>
       <AnchorPane prefHeight="127.0" prefWidth="608.0">
          <children>
-            <MenuButton layoutX="37.0" layoutY="22.0" mnemonicParsing="false" text="Edit lists">
-              <items>
-                <MenuItem mnemonicParsing="false" onAction="#AddList" text="Add List" />
-                <MenuItem mnemonicParsing="false" onAction="#removeList" text="Remove List" />
-              </items>
-            </MenuButton>
-            <MenuButton layoutX="143.0" layoutY="22.0" mnemonicParsing="false" text="Edit items">
+            <MenuButton layoutX="38.0" layoutY="47.0" mnemonicParsing="false" text="Edit items">
               <items>
                 <MenuItem mnemonicParsing="false" onAction="#removeItem" text="Remove item" />
                 <MenuItem mnemonicParsing="false" onAction="#editDescription" text="Change description" />
@@ -28,19 +22,17 @@
                   <MenuItem mnemonicParsing="false" onAction="#markComplete" text="Mark complete" />
               </items>
             </MenuButton>
-            <MenuButton layoutX="253.0" layoutY="22.0" mnemonicParsing="false" text="Display items">
+            <MenuButton layoutX="147.0" layoutY="47.0" mnemonicParsing="false" text="Display items">
               <items>
                 <MenuItem mnemonicParsing="false" onAction="#displayAll" text="All items" />
                 <MenuItem mnemonicParsing="false" onAction="#displayComplete" text="Completed items" />
                   <MenuItem mnemonicParsing="false" onAction="#displayIncomplete" text="Uncompleted items" />
               </items>
             </MenuButton>
-            <MenuButton layoutX="378.0" layoutY="22.0" mnemonicParsing="false" text="List storage">
+            <MenuButton layoutX="266.0" layoutY="47.0" mnemonicParsing="false" text="List storage">
               <items>
                 <MenuItem mnemonicParsing="false" onAction="#saveCurrent" text="Save current list" />
-                <MenuItem mnemonicParsing="false" onAction="#saveAll" text="Save all lists" />
                   <MenuItem mnemonicParsing="false" onAction="#loadOne" text="Load one list" />
-                  <MenuItem mnemonicParsing="false" onAction="#loadAll" text="Load all lists" />
               </items>
             </MenuButton>
          </children>

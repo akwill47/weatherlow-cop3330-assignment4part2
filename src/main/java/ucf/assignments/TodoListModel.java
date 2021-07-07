@@ -5,37 +5,7 @@ import java.util.HashMap;
 
 public class TodoListModel {
 
-        //modifying lists
-    public String addList(String title, ArrayList<ArrayList<HashMap<String,String>>> todoList){
-        //add hashmap title
-        //add ArrayList hashmap of 0 items
-
-        return "List successfully added";
-
-    }
-    public String removeList(String title, ArrayList<ArrayList<HashMap<String,String>>> todoList){
-        //if TotalLists is 0
-            //return "No lists to remove";
-
-        //else if title equals list title
-            //remove list
-            //redisplay current list
-
-        return "List successfully removed";
-    }
-    public String editListTitle(String title, ArrayList<ArrayList<HashMap<String,String>>> todoList){
-        //for i < TotalLists Size
-
-            // if currentList title equal to title
-                // make input equal to title;
-                //redisplay list;
-                //break;
-
-        //end for loop
-
-        return "title Successfully changed";
-    }
-    public String addItem(String title, ArrayList<ArrayList<HashMap<String,String>>> todoList){
+    public String addItem(String title, ArrayList<HashMap<String,String>> todoList){
         //for i < TotalLists Size
             // if currentList title equal to title
                 //add new map with description/due date/complete status
@@ -44,7 +14,7 @@ public class TodoListModel {
         return "Item successfully added";
 
     }
-    public String removeItem(String title, ArrayList<ArrayList<HashMap<String,String>>> todoList){
+    public String removeItem(String title, ArrayList<HashMap<String,String>> todoList){
         //if CurrentList size == 0
             //return "No items in list"
         //for i < TotalLists Size
@@ -62,7 +32,7 @@ public class TodoListModel {
         return "Item successfully removed";
 
     }
-    public String editItemDescription(String title, ArrayList<ArrayList<HashMap<String,String>>> todoList){
+    public String editItemDescription(String title, ArrayList<HashMap<String,String>> todoList){
 
         //for i < TotalLists Size
             // if currentList title equal to title
@@ -79,7 +49,7 @@ public class TodoListModel {
         return "Item description successfully changed";
 
     }
-    public String editItemDueDate(String title, ArrayList<ArrayList<HashMap<String,String>>> todoList){
+    public String editItemDueDate(String title, ArrayList<HashMap<String,String>> todoList){
         //for i < TotalLists Size
             // if currentList title equal to title
                 //for i< CurrentList size
@@ -96,7 +66,7 @@ public class TodoListModel {
         return "Item due date successfully changed";
 
     }
-    public String markItemComplete(String title, ArrayList<ArrayList<HashMap<String,String>>> todoList){
+    public String markItemComplete(String title, ArrayList<HashMap<String,String>> todoList){
         //for i < TotalLists Size
             // if currentList title equal to title
                 //for i< CurrentList size
@@ -115,7 +85,7 @@ public class TodoListModel {
     }
 
         //display
-    public String displayAllItems(String title, ArrayList<ArrayList<HashMap<String,String>>> todoList){
+    public String displayAllItems(String title, ArrayList<HashMap<String,String>> todoList){
         //for i < TotalLists Size
                 // if currentList title equal to title
                     //for i< CurrentList size
@@ -129,7 +99,7 @@ public class TodoListModel {
 
     }
 
-    public String displayCompleteItems(String title, ArrayList<ArrayList<HashMap<String,String>>> todoList){
+    public String displayCompleteItems(String title, ArrayList<HashMap<String,String>> todoList){
         //for i < TotalLists Size
             // if currentList title equal to title
                 //for i< CurrentList size
@@ -142,7 +112,7 @@ public class TodoListModel {
 
         return "All completed items displayed";
     }
-    public String displayIncompleteItems(String title, ArrayList<ArrayList<HashMap<String,String>>> todoList){
+    public String displayIncompleteItems(String title, ArrayList<HashMap<String,String>> todoList){
         //for i < TotalLists Size
             // if currentList title equal to title
                 //for i< CurrentList size
@@ -158,7 +128,7 @@ public class TodoListModel {
     }
         // save/loading
 
-    public String saveCurrentList(String title, ArrayList<ArrayList<HashMap<String,String>>> todoList){
+    public String saveCurrentList(String title, ArrayList<HashMap<String,String>> todoList){
         //create file in working directory
         //find index of current list title
         //write in json format to file
@@ -167,16 +137,8 @@ public class TodoListModel {
         return "Current list saved";
     }
 
-    public String saveAllLists(String title, ArrayList<ArrayList<HashMap<String,String>>> todoList){
-        //create file in working directory
-        //for loop through all list indexs
-        //write in json format to file
-        //close file
 
-        return "All lists saved";
-
-    }
-    public String loadSingleList(String title, ArrayList<ArrayList<HashMap<String,String>>> todoList){
+    public String loadSingleList(String title, ArrayList<HashMap<String,String>> todoList){
         //access work directory
         //for loop through all list titles
         //match to do list with title
@@ -184,12 +146,7 @@ public class TodoListModel {
         return "List loaded";
 
     }
-    public String loadAllLists(String title, ArrayList<ArrayList<HashMap<String,String>>> todoList){
-        //access work directory
-        //for loop through all list titles
-        //grab json format of every list
-        return "All lists from directory loaded";
-    }
+
 
 
 
