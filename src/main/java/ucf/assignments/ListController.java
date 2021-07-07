@@ -67,11 +67,21 @@ public class ListController {
     }
 
     public void editDueDate(ActionEvent actionEvent) {
-        func.editItemDueDate(title,todoLists);
+        //func.editItemDueDate(title,todoLists);
+        int index = itemList.getSelectionModel().getSelectedIndex();
+        if(index >= 0){
+            itemList.getItems().get(index).put("date",(addDate.getValue().toString()));
+        }
+        refresh();
     }
 
     public void markComplete(ActionEvent actionEvent) {
-        func.markItemComplete(title,todoLists);
+        //func.markItemComplete(title,todoLists);
+        int index = itemList.getSelectionModel().getSelectedIndex();
+        if(index >= 0){
+            itemList.getItems().get(index).put("complete",isComplete.getText());
+        }
+        refresh();
     }
 
     public void displayAll(ActionEvent actionEvent) {
