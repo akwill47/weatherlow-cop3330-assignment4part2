@@ -23,22 +23,21 @@ public class ListController {
     @FXML
     TextField isComplete;
     @FXML
-    ListView<TodoListItem>itemList;
+    ListView<HashMap<String,String>>itemList;
 
-    ObservableList<TodoListItem> list = FXCollections.observableArrayList();
+    ObservableList<HashMap<String,String>> list = FXCollections.observableArrayList();
     ArrayList<HashMap<String,String>>todoLists = new ArrayList<>();
     String title;
 
     @FXML
     public void AddListItem(ActionEvent actionEvent) {
-        //HashMap<String,String> newItem = new HashMap<>();
-        //newItem.put("date",(addDate.getValue().toString()));
-        //newItem.put("description",description.getText());
-        //newItem.put("complete",isComplete.getText());
-        //todoLists.add(newItem);
-        list.add(new TodoListItem(addDate.getValue(),description.getText(),isComplete.getText()));
+        HashMap<String,String> newItem = new HashMap<>();
+        newItem.put("date",(addDate.getValue().toString()));
+        newItem.put("description",description.getText());
+        newItem.put("complete",isComplete.getText());
+        list.add(newItem);
         itemList.setItems(list);
-        refresh();
+
 
     }
     private void refresh(){
