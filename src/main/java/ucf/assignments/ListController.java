@@ -1,5 +1,7 @@
 package ucf.assignments;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -12,6 +14,7 @@ import javafx.scene.control.TextField;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 
 public class ListController {
@@ -26,12 +29,10 @@ public class ListController {
     ListView<HashMap<String,String>>itemList;
 
     ObservableList<HashMap<String,String>> list = FXCollections.observableArrayList();
-    ObservableList<HashMap<String,String>> completeList = FXCollections.observableArrayList();
-    ObservableList<HashMap<String,String>> incompleteList = FXCollections.observableArrayList();
     ArrayList<HashMap<String,String>>todoLists = new ArrayList<>();
     String title;
 
-    @FXML
+
     public void AddListItem(ActionEvent actionEvent) {
         HashMap<String,String> newItem = new HashMap<>();
         newItem.put("date",(addDate.getValue().toString()));
@@ -92,6 +93,7 @@ public class ListController {
     }
 
     public void displayComplete(ActionEvent actionEvent) {
+        ObservableList<HashMap<String,String>> completeList = FXCollections.observableArrayList();
         //func.displayCompleteItems(title,todoLists);
         for(int i=0;i<list.size();i++){
             if(list.get(i).get("complete").equals("yes")){
@@ -103,6 +105,7 @@ public class ListController {
     }
 
     public void displayIncomplete(ActionEvent actionEvent) {
+        ObservableList<HashMap<String,String>> incompleteList = FXCollections.observableArrayList();
         //func.displayIncompleteItems(title,todoLists);
         for(int i=0;i<list.size();i++){
             if(list.get(i).get("complete").equals("no")){
@@ -113,7 +116,20 @@ public class ListController {
     }
 
     public void saveCurrent(ActionEvent actionEvent) {
-        func.saveCurrentList(title,todoLists);
+        //func.saveCurrentList(title,todoLists);
+        ArrayList<HashMap<String,String>>todoLists = new ArrayList<>();
+
+        for(int i=0;i<list.size();i++){
+            todoLists.add(list.get(i));
+        }
+
+        List<JsonObject> jsonObj = new ArrayList<>();
+
+        for(HashMap<String, String> item : todoLists) {
+            JsonObject obj = new JsonObject(item);
+            jsonObj.add(obj);
+        }
+        JsonArray test = new JsonArray(jsonObj);
     }
 
     public void loadOne(ActionEvent actionEvent) {

@@ -1,8 +1,8 @@
 package ucf.assignments;
-
+import java.io.Serializable;
 import java.time.LocalDate;
 
-public class TodoListItem{
+public class TodoListItem implements Serializable{
     private String description;
     private LocalDate dueDate;
     private String completed;
