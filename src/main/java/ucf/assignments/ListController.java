@@ -26,6 +26,8 @@ public class ListController {
     ListView<HashMap<String,String>>itemList;
 
     ObservableList<HashMap<String,String>> list = FXCollections.observableArrayList();
+    ObservableList<HashMap<String,String>> completeList = FXCollections.observableArrayList();
+    ObservableList<HashMap<String,String>> incompleteList = FXCollections.observableArrayList();
     ArrayList<HashMap<String,String>>todoLists = new ArrayList<>();
     String title;
 
@@ -85,15 +87,29 @@ public class ListController {
     }
 
     public void displayAll(ActionEvent actionEvent) {
-        func.displayAllItems(title,todoLists);
+        //func.displayAllItems(title,todoLists);
+        itemList.setItems(list);
     }
 
     public void displayComplete(ActionEvent actionEvent) {
-        func.displayCompleteItems(title,todoLists);
+        //func.displayCompleteItems(title,todoLists);
+        for(int i=0;i<list.size();i++){
+            if(list.get(i).get("complete").equals("yes")){
+                completeList.add(list.get(i));
+            }
+        }
+        itemList.setItems(completeList);
+
     }
 
     public void displayIncomplete(ActionEvent actionEvent) {
-        func.displayIncompleteItems(title,todoLists);
+        //func.displayIncompleteItems(title,todoLists);
+        for(int i=0;i<list.size();i++){
+            if(list.get(i).get("complete").equals("no")){
+                incompleteList.add(list.get(i));
+            }
+        }
+        itemList.setItems(incompleteList);
     }
 
     public void saveCurrent(ActionEvent actionEvent) {

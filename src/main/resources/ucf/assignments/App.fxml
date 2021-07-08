@@ -12,9 +12,9 @@
 
 <SplitPane dividerPositions="0.1891891891891892" orientation="VERTICAL" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ucf.assignments.ListController">
    <items>
-      <AnchorPane prefHeight="127.0" prefWidth="608.0">
+      <AnchorPane prefHeight="49.0" prefWidth="608.0">
          <children>
-            <MenuButton layoutX="38.0" layoutY="47.0" mnemonicParsing="false" text="Edit items">
+            <MenuButton layoutX="40.0" layoutY="14.0" mnemonicParsing="false" text="Edit items">
               <items>
                 <MenuItem mnemonicParsing="false" onAction="#removeItem" text="Remove item" />
                 <MenuItem mnemonicParsing="false" onAction="#editDescription" text="Change description" />
@@ -22,14 +22,14 @@
                   <MenuItem mnemonicParsing="false" onAction="#markComplete" text="Mark complete" />
               </items>
             </MenuButton>
-            <MenuButton layoutX="147.0" layoutY="47.0" mnemonicParsing="false" text="Display items">
+            <MenuButton layoutX="147.0" layoutY="14.0" mnemonicParsing="false" text="Display items">
               <items>
                 <MenuItem mnemonicParsing="false" onAction="#displayAll" text="All items" />
                 <MenuItem mnemonicParsing="false" onAction="#displayComplete" text="Completed items" />
                   <MenuItem mnemonicParsing="false" onAction="#displayIncomplete" text="Uncompleted items" />
               </items>
             </MenuButton>
-            <MenuButton layoutX="266.0" layoutY="47.0" mnemonicParsing="false" text="List storage">
+            <MenuButton layoutX="264.0" layoutY="14.0" mnemonicParsing="false" text="List storage">
               <items>
                 <MenuItem mnemonicParsing="false" onAction="#saveCurrent" text="Save current list" />
                   <MenuItem mnemonicParsing="false" onAction="#loadOne" text="Load one list" />
