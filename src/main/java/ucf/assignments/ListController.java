@@ -64,7 +64,7 @@ public class ListController {
 
     }
 
-    public String editDescription(ActionEvent actionEvent) {
+    public void editDescription(ActionEvent actionEvent) {
         int index = itemList.getSelectionModel().getSelectedIndex();
         if(index >= 0){
             //calls edit item description func and changes the hashmap of the index
@@ -73,7 +73,6 @@ public class ListController {
         //converts the hashmap to a string and makes it look pretty and assigned it to the observable list
         list.set(index,prettyString(tempList.get(index)));
         refresh();
-        return "Description edited successfully";
     }
 
     public void editDueDate(ActionEvent actionEvent) {
