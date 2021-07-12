@@ -120,10 +120,9 @@ class TodoListModelTest {
     @Test
     void saveCurrentList() {
         TodoListModel todoAction = new TodoListModel();
-        String title = "temp";
         ArrayList<HashMap<String,String>> temp = new ArrayList<>();
         String expected ="Current list saved";
-        String actual = todoAction.saveCurrentList(title,temp);
+        String actual = todoAction.saveCurrentList(temp);
         assertEquals(expected,actual);
     }
 
@@ -132,10 +131,9 @@ class TodoListModelTest {
     @Test
     void loadSingleList() {
         TodoListModel todoAction = new TodoListModel();
-        String title = "temp";
         ArrayList<HashMap<String,String>> temp = new ArrayList<>();
         String expected ="List loaded";
-        String actual = todoAction.loadSingleList(title,temp);
+        String actual = todoAction.loadSingleList(temp);
         assertEquals(expected,actual);
     }
 

@@ -28,9 +28,8 @@ public class ListController {
     @FXML
     ListView<String>itemList;
 
-    ArrayList<HashMap<String,String>> tempList = new ArrayList<>();
-    ObservableList<String> list = FXCollections.observableArrayList();
-
+    ArrayList<HashMap<String,String>> tempList = new ArrayList<>();// main working list
+    ObservableList<String> list = FXCollections.observableArrayList();//main observable list
     public String prettyString(HashMap<String,String> item){
         //turns the hashmaps into a string so it looks nice on listview
         return "Due Date: " + item.get("date") + "\tDescription: " + item.get("description") + "\t\t\t\t\tCompleted: " + item.get("complete");
@@ -130,24 +129,24 @@ public class ListController {
     }
 
     public void saveCurrent(ActionEvent actionEvent) {
-        //func.saveCurrentList(title,todoLists);
-        //ArrayList<HashMap<String,String>>todoLists = new ArrayList<>();
+        //call func to save current list
+        func.saveCurrentList(tempList);
 
-        //for(int i=0;i<list.size();i++){
-            //todoLists.add(list.get(i));
-       // }
-
-        //List<JsonObject> jsonObj = new ArrayList<>();
-
-        //for(HashMap<String, String> item : todoLists) {
-            //JsonObject obj = new JsonObject(item);
-            //jsonObj.add(obj);
-        //}
-        //JsonArray test = new JsonArray(jsonObj);
     }
 
     public void loadOne(ActionEvent actionEvent) {
-        //func.loadSingleList(title,todoLists);
+        //call func to load list and set to  templist
+        func.loadSingleList(tempList);
+
+        //clear current list
+        list.removeAll();
+
+        //set observable list to new templist
+        for(int i=0;i<tempList.size();i++){
+            list.set(i,prettyString(tempList.get(i)));
+        }
+        //listview setitems to observable list
+        itemList.setItems(list);
     }
 
     public void clearList(ActionEvent actionEvent) {

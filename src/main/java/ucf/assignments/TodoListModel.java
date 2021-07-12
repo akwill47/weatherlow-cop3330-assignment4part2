@@ -88,9 +88,9 @@ public class TodoListModel {
     }
         // save/loading
 
-    public String saveCurrentList(String title, ArrayList<HashMap<String,String>> todoList){
+    public String saveCurrentList(ArrayList<HashMap<String,String>> todoList){
         //create file in working directory
-        //find index of current list title
+        //for loop through size of list
         //write in json format to file
         //close file
 
@@ -98,11 +98,11 @@ public class TodoListModel {
     }
 
 
-    public String loadSingleList(String title, ArrayList<HashMap<String,String>> todoList){
+    public String loadSingleList(ArrayList<HashMap<String,String>> loadingList){
         //access work directory
-        //for loop through all list titles
-        //match to do list with title
-        //grab json format of that specific list
+        //for loop through to EOF
+        //add json format to hashmap and increment index
+        //close file after for loop
         return "List loaded";
 
     }
