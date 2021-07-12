@@ -139,7 +139,7 @@ public class ListController {
         func.loadSingleList(tempList);
 
         //clear current list
-        list.removeAll();
+        list.clear();
 
         //set observable list to new templist
         for(int i=0;i<tempList.size();i++){
@@ -153,7 +153,7 @@ public class ListController {
         //calls clearList func and removes all the elements in the list
         func.clearList(tempList);
         //clears the observable list
-        list.removeAll();
+        list.clear();
         //updates listview
         itemList.setItems(list);
     }

@@ -112,7 +112,6 @@ public class TodoListModel {
 
         //remove each index one by one
         for(int i=list.size();i>0;i--){
-            System.out.print(list.size());
             list.remove(i-1);
         }
         return "List successfully cleared";

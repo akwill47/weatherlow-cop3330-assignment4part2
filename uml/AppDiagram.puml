@@ -13,7 +13,8 @@ tempList: ArrayList
 list: ObservableList
 
 AddListItem(ActionEvent)
-refresh(ActionEvent)
+refresh()
+prettyString()
 removeItem(ActionEvent)
 editDescription(ActionEvent)
 editDueDate(ActionEvent)
