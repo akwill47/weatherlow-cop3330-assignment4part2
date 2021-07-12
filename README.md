@@ -1,4 +1,5 @@
 # weatherlow-cop3330-assignment4part2
+How to use this ToDo List Program
 
 To add an item:
   Fill in the appropiate textfields and datepicker and click add.
