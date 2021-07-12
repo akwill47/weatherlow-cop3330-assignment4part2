@@ -28,17 +28,13 @@ public class ListController {
     @FXML
     ListView<HashMap<String,String>>itemList;
 
+    ArrayList<HashMap<String,String>> tempList = new ArrayList<>();
     ObservableList<HashMap<String,String>> list = FXCollections.observableArrayList();
-    ArrayList<HashMap<String,String>>todoLists = new ArrayList<>();
-    String title;
 
 
     public void AddListItem(ActionEvent actionEvent) {
-        HashMap<String,String> newItem = new HashMap<>();
-        newItem.put("date",(addDate.getValue().toString()));
-        newItem.put("description",addDescription.getText());
-        newItem.put("complete",isComplete.getText());
-        list.add(newItem);
+        func.addItem(tempList,addDate.getValue().toString(),addDescription.getText(),isComplete.getText());
+        list.add(tempList.get(tempList.size()-1));
         itemList.setItems(list);
         refresh();
 
@@ -53,65 +49,66 @@ public class ListController {
     public void removeItem(ActionEvent actionEvent) {
         int index = itemList.getSelectionModel().getSelectedIndex();
         if(index >= 0){
-            itemList.getItems().remove(index);
+
+            func.removeItem(tempList,index);
+            list.remove(index);
         }
         refresh();
-        //func.removeItem(title,todoLists);
+
 
     }
 
-    public void editDescription(ActionEvent actionEvent) {
+    public String editDescription(ActionEvent actionEvent) {
         int index = itemList.getSelectionModel().getSelectedIndex();
         if(index >= 0){
-            itemList.getItems().get(index).put("description",addDescription.getText());
+            func.editItemDescription(tempList,index,addDescription.getText());
         }
+        list.set(index,tempList.get(index));
         refresh();
-        //func.editItemDescription(title,todoLists);
+        return "Description edited successfully";
     }
 
     public void editDueDate(ActionEvent actionEvent) {
-        //func.editItemDueDate(title,todoLists);
         int index = itemList.getSelectionModel().getSelectedIndex();
         if(index >= 0){
-            itemList.getItems().get(index).put("date",(addDate.getValue().toString()));
+            func.editItemDueDate(tempList,index,addDate.getValue().toString());
         }
+        list.set(index,tempList.get(index));
         refresh();
     }
 
     public void markComplete(ActionEvent actionEvent) {
-        //func.markItemComplete(title,todoLists);
         int index = itemList.getSelectionModel().getSelectedIndex();
         if(index >= 0){
-            itemList.getItems().get(index).put("complete",isComplete.getText());
+            func.markItemComplete(tempList,index,isComplete.getText());
         }
+        list.set(index,tempList.get(index));
         refresh();
     }
 
     public void displayAll(ActionEvent actionEvent) {
-        //func.displayAllItems(title,todoLists);
-        itemList.setItems(list);
+        func.displayAllItems(itemList,list);
+        //itemList.setItems(list);
     }
 
     public void displayComplete(ActionEvent actionEvent) {
-        ObservableList<HashMap<String,String>> completeList = FXCollections.observableArrayList();
-        //func.displayCompleteItems(title,todoLists);
-        for(int i=0;i<list.size();i++){
-            if(list.get(i).get("complete").equals("yes")){
-                completeList.add(list.get(i));
-            }
-        }
+        ArrayList<HashMap<String,String>> tempComplete = new ArrayList<>();
+        func.displayCompleteItems(tempComplete,tempList);
+
+        ObservableList<HashMap<String,String>> completeList = FXCollections.observableArrayList(tempComplete);
         itemList.setItems(completeList);
 
     }
 
     public void displayIncomplete(ActionEvent actionEvent) {
-        ObservableList<HashMap<String,String>> incompleteList = FXCollections.observableArrayList();
-        //func.displayIncompleteItems(title,todoLists);
-        for(int i=0;i<list.size();i++){
-            if(list.get(i).get("complete").equals("no")){
-                incompleteList.add(list.get(i));
-            }
-        }
+        ArrayList<HashMap<String,String>> tempIncomplete = new ArrayList<>();
+        func.displayIncompleteItems(tempIncomplete,tempList);
+        //for(int i=0;i<list.size();i++){
+            //if(list.get(i).get("complete").equals("no")){
+                //incompleteList.add(list.get(i));
+            //}
+        //}
+        ObservableList<HashMap<String,String>> incompleteList = FXCollections.observableArrayList(tempIncomplete);
         itemList.setItems(incompleteList);
     }
 
@@ -125,15 +122,20 @@ public class ListController {
 
         List<JsonObject> jsonObj = new ArrayList<>();
 
-        for(HashMap<String, String> item : todoLists) {
-            JsonObject obj = new JsonObject(item);
-            jsonObj.add(obj);
-        }
-        JsonArray test = new JsonArray(jsonObj);
+        //for(HashMap<String, String> item : todoLists) {
+            //JsonObject obj = new JsonObject(item);
+            //jsonObj.add(obj);
+        //}
+        //JsonArray test = new JsonArray(jsonObj);
     }
 
     public void loadOne(ActionEvent actionEvent) {
-        func.loadSingleList(title,todoLists);
+        //func.loadSingleList(title,todoLists);
     }
 
+    public void clearList(ActionEvent actionEvent) {
+        func.clearList(tempList);
+        list = FXCollections.observableArrayList(tempList);
+        itemList.setItems(list);
+    }
 }

@@ -8,46 +8,44 @@ start()
 
 
 class ListController{
-AddListItem()
-RemoveList()
-removeItem()
-editDes
+itemList: Listview
+tempList: ArrayList
+list: ObservableList
+
+AddListItem(ActionEvent)
+refresh(ActionEvent)
+removeItem(ActionEvent)
+editDescription(ActionEvent)
+editDueDate(ActionEvent)
+markComplete(ActionEvent)
+displayALl(ActionEvent)
+displayComplete(ActionEvent)
+displayIncomplete(ActionEvent)
+saveCurrent(ActionEvent)
+loadOne(ActionEvent)
+clearList(ActionEvent)
 
 }
 
 class TodoListModel{
-
-    todoItem: Collection
-    todoList: Collection
-    addList()
-    removeList()
-    editListTitle()
     addItem()
     removeItem()
     editItemDescription()
     editItemDueDate()
     markItemComplete()
-
     displayAllItems()
     displayCompleteItems()
     displayIncompleteItems()
-
     saveCurrentList()
-    saveAllLists()
-
     loadSingleList()
-    loadAllLists()
+    clearList()
+
 
 }
 
-class TodoListItem{
-    Description: String
-    Due date: String
-    Completed: boolean
-}
 
 javafx.Application <|-- App
 App -- ListController
 ListController *--> TodoListModel
-TodoListModel *-> TodoListItem
+
 @enduml

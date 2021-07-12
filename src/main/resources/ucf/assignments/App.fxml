@@ -20,6 +20,7 @@
                 <MenuItem mnemonicParsing="false" onAction="#editDescription" text="Change description" />
                   <MenuItem mnemonicParsing="false" onAction="#editDueDate" text="Change due date" />
                   <MenuItem mnemonicParsing="false" onAction="#markComplete" text="Mark complete" />
+                  <MenuItem mnemonicParsing="false" onAction="#clearList" text="Clear List" />
               </items>
             </MenuButton>
             <MenuButton layoutX="147.0" layoutY="14.0" mnemonicParsing="false" text="Display items">
